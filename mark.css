@@ -1,0 +1,41 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.finished {
+    background-color: white;
+    color: gray;
+}
+
+.current {
+    background-color: green;
+    color: black;
+}
+
+.incorrect {
+    background-color: red;
+    color: black;
+}
+
+
+p {
+    border-top: 1px solid gray;
+}
+
+p#last {
+    border-bottom: 1px solid gray;
+}
+
+p.nolines {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
