@@ -53,6 +53,8 @@ function monitor() {
     letter = s.charAt(index);
     highlightLetter(index);
     errCount = 0;
+    countErr = 0;
+    correctCount = 0;
     $("body").keypress(function (e) {
         if (index < s.length) {
             if (String.fromCharCode(e.charCode) == letter) {
@@ -61,6 +63,7 @@ function monitor() {
                 highlightLetter(index);
                 finishLetter(index-1);
                 letter = s.charAt(index);
+                correctCount += 1;
             }
             else {
                 if (errCount < 1) {
@@ -70,7 +73,11 @@ function monitor() {
                     wrongLetter(index-1);
                     letter = s.charAt(index);
                 }
+                countErr += 1;
             }
+        }
+        else {
+            alert("Done!\nIncorrect:"+countErr.toString()+"\nCorrect:"+correctCount.toString(), "Results");
         }
     });
 }
