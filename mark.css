@@ -1,5 +1,6 @@
 body {
     font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
 }
 
 .finished {
@@ -23,7 +24,7 @@ p {
 }
 
 p#last {
-    border-bottom: 1px solid gray;
+    border-bottom: 10px solid gray;
 }
 
 p.nolines {

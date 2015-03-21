@@ -1,4 +1,26 @@
-var s = "why does judd travers kill his dogs. do you think it is correct, or not.";
+var s = prompt("What do you want to type? (max 300 chars)", "");
+function genHTML() {
+    out = $("div#content");
+    html = "<p class='nolines'>";
+    ix = 0;
+    for (ixx=0;ixx<10;ixx++) {
+        if (ixx+1 == 5) {
+            html += "<p class='last'>";
+        }
+        else {
+            html += "<p>";
+        }
+        for (i=0;i<30;i++) {
+            html += "<span class='"+((i+ix).toString())+"'></span>";
+            if (i==29) {
+                ix += 30;
+            }
+        }
+        html += "</p>";
+    }
+    html += "</p>";
+    out.html(html);
+}
 function fillIn() {
     for (i=0;i<s.length;i++) {
         // alert("span.".concat(i.toString()));
@@ -24,6 +46,7 @@ function finishLetter(index) {
 }
 
 function monitor() {
+    genHTML();
     fillIn();
     highlightLetter(0);
     index = 0;
