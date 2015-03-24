@@ -1,4 +1,5 @@
 var s = prompt("What do you want to type? (max 300 chars)", "");
+var j = null;
 function genHTML() {
     out = $("div#content");
     html = "<p class='nolines'>";
@@ -44,6 +45,11 @@ function finishLetter(index) {
     html.attr("class", index.toString());
     html.addClass("finsihed");
 }
+function backLetter(index) {
+    var html = $("span.".concat(index.toString()));
+    html.attr("class", index.toString());
+    highlightLetter(index-1);
+}
 
 function monitor() {
     genHTML();
@@ -55,17 +61,18 @@ function monitor() {
     errCount = 0;
     countErr = 0;
     correctCount = 0;
-    $("body").keypress(function (e) {
+    $(document).keypress(function (e) {
         if (index < s.length) {
             if (String.fromCharCode(e.charCode) == letter) {
                 errCount = 0;
-                index += 1;
+                index++;
                 highlightLetter(index);
                 finishLetter(index-1);
                 letter = s.charAt(index);
-                correctCount += 1;
+                correctCount++;
             }
             else {
+
                 if (errCount < 1) {
                     errCount += 1;
                     index += 1;
@@ -75,6 +82,14 @@ function monitor() {
                 }
                 countErr += 1;
             }
+            if (e.charCode == 8 || e.charCode == 46 || e.charCode == 35) {
+                if (errCount) {
+                    errCount--;
+                }
+                backLetter(index);
+                index--;
+            }
+            return false;
         }
         else {
             alert("Done!\nIncorrect:"+countErr.toString()+"\nCorrect:"+correctCount.toString(), "Results");
