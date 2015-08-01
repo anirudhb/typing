@@ -1,6 +1,22 @@
-var s = prompt("What do you want to type? (max 300 chars)", "");
-var j = null;
+var s = ""; // The string that will be shown. Must be less than 300 characters
+var url = ""; // Must be non-empty and using the http protocol or https.
+var dev = "This is the text that will be typed."; // Replace in developement if you want.
+if (url) {
+	// Open a new XMLHttpRequest to the url, get the text, and put it in s if non-empty.
+	var req = new XMLHttpRequest();
+	req.open("GET", url, false);
+	req.send();
+	var t = req.responseText;
+	if (t) {
+		s = t;
+	}
+}
+// Else, put dev into s. (Development only)
+if (!s) {
+	s = dev;
+}
 function genHTML() {
+	// Get the output element, template code, and loop variable.
     out = $("div#content");
     html = "<p class='nolines'>";
     ix = 0;
