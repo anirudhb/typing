@@ -81,6 +81,7 @@ function monitor() {
     correctCount = 0;
     $(document).keyup(function (e) {
         if (index < s.length) {
+            e.preventDefault();
             var k = e.code;
             if (k == letter) {
                 errCount = 0;
