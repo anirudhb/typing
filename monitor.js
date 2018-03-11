@@ -81,7 +81,7 @@ function monitor() {
     correctCount = 0;
     $(document).keyup(function (e) {
         if (index < s.length) {
-            if (String.fromCharCode(e.code) == letter) {
+            if (String.fromCharCode(e.key) == letter) {
                 errCount = 0;
                 index++;
                 highlightLetter(index);
@@ -99,10 +99,10 @@ function monitor() {
                 }
                 countErr += 1;
             }
-	    if (index == s.length-1 && !(e.code == 8 || e.code == 46 || e.code == 35)) {
+	    if (index == s.length-1 && !(e.key == 8 || e.key == 46 || e.key == 35)) {
 		index++;
 	    }
-            if (e.code == 8 || e.code == 46 || e.code == 35) {
+            if (e.key == 8 || e.key == 46 || e.key == 35) {
                 if (errCount) {
                     errCount--;
                 }
