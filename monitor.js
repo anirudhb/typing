@@ -78,7 +78,7 @@ function monitor() {
     countErr = 0;
     correctCount = 0;
     $(document).keyup(function (e) {
-        if (index <= s.length) {
+        if (index < s.length) {
             if (String.fromCharCode(e.charCode) == letter) {
                 errCount = 0;
                 index++;
@@ -88,7 +88,6 @@ function monitor() {
                 correctCount++;
             }
             else {
-
                 if (errCount < 1) {
                     errCount += 1;
                     index += 1;
@@ -98,7 +97,10 @@ function monitor() {
                 }
                 countErr += 1;
             }
-            if (e.charCode == 8 || e.charCode == 46 || e.charCode == 35) {
+	    if (index == s.length-1 && !(e.keyCode == 8 || e.keyCode == 46 || e.keyCode == 35)) {
+		index++;
+	    }
+            if (e.keyCode == 8 || e.keyCode == 46 || e.keyCode == 35) {
                 if (errCount) {
                     errCount--;
                 }
