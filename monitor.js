@@ -1,4 +1,4 @@
-var s = ""; // The string that will be shown. Must be less than 300 characters
+var s = "Donec fringilla auctor suscipit. Aliquam erat volutpat. In amet."; // The string that will be shown. Must be less than 300 characters
 var url = ""; // Must be non-empty and using the http protocol or https.
 var dev = "This is the text that will be typed."; // Replace in developement if you want.
 if (url) {
