@@ -81,7 +81,8 @@ function monitor() {
     correctCount = 0;
     $(document).keyup(function (e) {
         if (index < s.length) {
-            if (e.key == letter) {
+            var k = e.code;
+            if (k == letter) {
                 errCount = 0;
                 index++;
                 highlightLetter(index);
@@ -99,10 +100,10 @@ function monitor() {
                 }
                 countErr += 1;
             }
-	    if (index == s.length-1 && !(e.key == "Backspace" || e.key == "Delete")) {
+	    if (index == s.length-1 && !(k == "Backspace" || k == "Delete")) {
 		    index++;
 	    }
-        if (e.key == "Backspace" || e.key == "Delete") {
+        if (k == "Backspace" || k == "Delete") {
                 if (errCount) {
                     errCount--;
                 }
