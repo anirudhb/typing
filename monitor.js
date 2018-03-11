@@ -59,7 +59,7 @@ function finishLetter(index) {
 
     var html = $("span.".concat(index.toString()));
     html.attr("class", index.toString());
-    html.addClass("finsihed");
+    html.addClass("finished");
 }
 function backLetter(index) {
     var html = $("span.".concat(index.toString()));
@@ -78,7 +78,7 @@ function monitor() {
     countErr = 0;
     correctCount = 0;
     $(document).keypress(function (e) {
-        if (index < s.length) {
+        if (index <= s.length) {
             if (String.fromCharCode(e.charCode) == letter) {
                 errCount = 0;
                 index++;
