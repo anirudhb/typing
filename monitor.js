@@ -77,7 +77,7 @@ function monitor() {
     errCount = 0;
     countErr = 0;
     correctCount = 0;
-    $(document).keypress(function (e) {
+    $(document).keyup(function (e) {
         if (index <= s.length) {
             if (String.fromCharCode(e.charCode) == letter) {
                 errCount = 0;
