@@ -16,7 +16,7 @@ if (!s) {
 	s = dev;
 }
 // Strip s of spaces.
-s = s.strip();
+s = s.trim();
 function genHTML() {
 	// Get the output element, template code, and loop variable.
     out = $("div#content");
@@ -81,7 +81,7 @@ function monitor() {
     correctCount = 0;
     $(document).keyup(function (e) {
         if (index < s.length) {
-            if (String.fromCharCode(e.key) == letter) {
+            if (e.key == letter) {
                 errCount = 0;
                 index++;
                 highlightLetter(index);
@@ -99,10 +99,10 @@ function monitor() {
                 }
                 countErr += 1;
             }
-	    if (index == s.length-1 && !(e.key == 8 || e.key == 46 || e.key == 35)) {
-		index++;
+	    if (index == s.length-1 && !(e.key == "Backspace" || e.key == "Delete")) {
+		    index++;
 	    }
-            if (e.key == 8 || e.key == 46 || e.key == 35) {
+        if (e.key == "Backspace" || e.key == "Delete") {
                 if (errCount) {
                     errCount--;
                 }
